@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bands</title>
+</head>
+<body>
+    <nav>
+        <h1>Rock On {{user.first_name}}!!!</h1>
+        <div>
+            <a href="/show/band/{{user.id}}">My Bands</a>
+            <a href="/new/band">New Band</a>
+            <form action="/logout">
+                <button>Logout</button>
+            </form>
+        </div>
+    </nav>
+    <h3>All Bands</h3>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Band Name</th>
+                    <th>Founding Member</th>
+                    <th>Genre</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for band in bands %}
+                    <tr>
+                        <td>{{band.name}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{band.genre}}</td>
+                        <td>
+                            <a href="/edit/band/{{band.id}}">Edit</a>
+                            <a href="/destroy/band/{{band.id}}">Delete</a>
+                            <br>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

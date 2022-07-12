@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bands</title>
+</head>
+<body>
+    <nav>
+        <h1>Rock On {{user.first_name}}!!!</h1>
+        <div>
+            <a href="/show/band">My Bands</a>
+            <a href="/home">Dashboard</a>
+            <form action="/logout">
+                <button>Logout</button>
+            </form>
+        </div>
+    </nav>
+    <form action="/update/band" method="post">
+        <h2>Edit Recipe</h2>
+        {% with messages = get_flashed_messages(category_filter=['band']) %}
+            {% if messages %}
+            <div>
+                <strong>Flash AHHHHHHH!!!!</strong>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+        
+        <div>
+            <input type="hidden" name="id" value={{edit.id}}>
+            <div>
+                <div>
+                    <label>Band Name:</label>
+                    <input type="text" name="name" value="{{edit.name}}">
+                </div>
+                <div>
+                    <label>Music Genre:</label>
+                    <input type="text" name="genre" value="{{edit.genre}}">
+                </div>
+                <div>
+                    <label>Home City:</label>
+                    <input type="text" name="home_city" value="{{edit.home_city}}">
+                </div>
+            </div>
+            <div>
+                <button>Update</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

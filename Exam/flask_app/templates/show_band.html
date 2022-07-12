@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bands</title>
+</head>
+<body>
+    <nav>
+        <h1>Rock On {{user.first_name}}!!!</h1>
+        <div>
+            <a href="/home">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+    <div>
+        <div>
+            <h2>My Bands:</h2>
+        </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Band Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>{{band.name}}</td>
+                                <td>
+                                    <a href="/edit/band/{{band.id}}">Edit</a>
+                                    <a href="/destroy/band/{{band.id}}">Delete</a>
+                                    <br>
+                                </td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</body>
+</html>
